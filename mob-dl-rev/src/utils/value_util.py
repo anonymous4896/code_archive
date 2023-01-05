@@ -1,0 +1,3 @@
+class ValueUtil:
+    CUSTOM_OP_ERROR = 0x0000
+    INTERPRET_ERROR = 0x0001
