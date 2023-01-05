@@ -1,0 +1,6 @@
+test_size: 100
+clip_min: -2.117904
+clip_max: 2.64
+attack_eps: 0.3
+model_name: "DenseNet121"
+image_shape: [224, 224]

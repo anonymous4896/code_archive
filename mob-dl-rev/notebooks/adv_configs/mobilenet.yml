@@ -1,0 +1,6 @@
+test_size: 100
+clip_min: -1
+clip_max: 1
+attack_eps: 0.3
+model_name: "MobileNet"
+image_shape: [224, 224]
