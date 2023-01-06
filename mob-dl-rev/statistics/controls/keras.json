@@ -1,0 +1,29 @@
+{
+    "com.blink.academy.nomo": {
+        "deeplabv3_257_mv_gpu.tflite": {
+            "process_config": {
+                "pixel_type": "float32",
+                "reshape": [
+                    1,
+                    257,
+                    257,
+                    3
+                ],
+                "sub": 127.5,
+                "div": 127.5,
+                "reverse": false,
+                "mode": "BGR"
+            },
+            "img_label": {
+                "default": null
+            },
+            "img_target": {
+                "default": "argmax"
+            },
+            "metric": "segmentation_argmax",
+            "kwargs": {
+                "axis": -1
+            }
+        }
+    }
+}
