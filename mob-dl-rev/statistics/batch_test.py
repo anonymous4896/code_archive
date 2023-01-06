@@ -54,7 +54,7 @@ sys.path.append(os.getcwd())
 from src.advtool.WhiteBoxAttacks.config import AdvAttackConfig
 from src.advtool.attack import AdvTool
 
-MODEL_DIR = os.path.join("/tf", "data", 'apk', 'tensorflow_models')
+MODEL_DIR = os.path.join("data", 'tf_data')
 MEDIA_DIR = os.path.join("statistics", "media")
 LOG_DIR = "logs"
 CONTROL_DIR = os.path.join("statistics", "controls")
@@ -508,7 +508,7 @@ def test_one_model(apk_name: str,  model_name: str, img_name=""):
             control = all_control[apk_name][control] 
     if args.keras:
 
-        model_path = os.path.join("keras_data","tflite_model")
+        model_path = os.path.join("data","keras_data","tflite_model")
         ignore_list = open(os.path.join(model_path, 'keras_ignore.txt'), 'r').read()
         if "%s/%s" %(apk_name, model_name) in ignore_list: 
             logging.warning("%s/%s in ignore list. Skip"%(apk_name, model_name))
@@ -546,7 +546,7 @@ def test_one_model(apk_name: str,  model_name: str, img_name=""):
             img_path = os.path.join(MEDIA_DIR, apk_name, img_name)
         if args.keras_origin_model:
             """ load the origin(old) model """
-            old_model_path = os.path.join("keras_data","raw",apk_name, model_name)
+            old_model_path = os.path.join("data","keras_data","raw",apk_name, model_name)
             interpreter = tf.lite.Interpreter(model_path=old_model_path)
         else:
             interpreter = None
@@ -614,17 +614,19 @@ def write_res_one_img(data: dict, apk_name: str,  model_name: str, image_name: s
     f_md = open(md_file, 'a')
 
     origin_output = data['origin_output']
-    origin_output_old = data['origin_output_old']
     origin_img_path = data['origin_img_path']
     np.savez(os.path.join(np_dir, "%s_origin.npz" % image_name), origin_output)
-    np.savez(os.path.join(np_dir, "%s_origin.old.npz" % image_name), origin_output_old)
+    if 'origin_output_old' in data:
+        origin_output_old = data['origin_output_old']
+        np.savez(os.path.join(np_dir, "%s_origin.old.npz" % image_name), origin_output_old)
     cur_res = data['res']
     for nr_iter in cur_res:
         for eps_dividend in cur_res[nr_iter]:
             out = cur_res[nr_iter][eps_dividend]['output']
-            out_old = cur_res[nr_iter][eps_dividend]['output_old']
-            np.savez(os.path.join(np_dir, "%s_%d_%d.old.npz" %
-                                  (image_name, nr_iter, eps_dividend)), out_old)
+            if 'output_old' in cur_res[nr_iter][eps_dividend]:
+                out_old = cur_res[nr_iter][eps_dividend]['output_old']
+                np.savez(os.path.join(np_dir, "%s_%d_%d.old.npz" %
+                                    (image_name, nr_iter, eps_dividend)), out_old)
             np.savez(os.path.join(np_dir, "%s_%d_%d.npz" %
                                   (image_name, nr_iter, eps_dividend)), out)
             adv_img_path = cur_res[nr_iter][eps_dividend]['adv_img']

@@ -1,0 +1,26 @@
+{
+    "uk.tensorzoom_2018-01-18":{
+        "lv2.pb":{
+            "input_name":["input"],
+            "other_inputs":{
+                "input_shape":[64,64,3]
+            },
+            "output_name":["output"],
+            "process_config":{
+                "pixel_type":"float32",
+                "reshape":[64, 64, 3],
+                "sub": 0, 
+                "div": 255,
+                "reverse":false,
+                "mode":"BGR"
+            },
+            "img_label":{
+                "default":1
+            },
+            "img_target":{
+                "default":null
+            },
+            "metric":"ssim"
+        }
+    }
+}
