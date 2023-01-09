@@ -1,0 +1,115 @@
+//        String apkDir = Constant.apkDir;
+//        ArrayList<String> apks = new ArrayList<>(Arrays.asList(
+////                ---------------------------------- 2023
+////                apkDir + "uk.tensorzoom_2018-01-18.apk"
+//                apkDir + "com.blink.academy.nomo.apk"
+//
+//
+////                ---------------------------------- 2022
+////                apkDir + "uk.tensorzoom_2018-01-18.apk"//17 s //5 models maybe 6?
+////            apkDir + "apk-com.ghost.sibyl.apk" //double loop // 80 s // 2 goto //1+4 models
+////            apkDir + "apk-ch.zhaw.facerecognition.apk" //wrong model name: optimized_facenet.pb //1 model
+////            apkDir + "com.peace.SilentCamera.apk" // pigtail loop pass //+4 line //1 model
+////            apkDir + "com.Video_Mobile_VM.Barnamaj_Damj_Sowar.apk" //pass //picture need resize 16x //run //66s //same as beauty //36 models
+////            apkDir + "beauty.camera.photo.editor.apk" // specialMethods2Skip add "org.json." stack overflow // //same as videos //36 models
+////            apkDir + "apk-com.infixtools.sketchphotomaker.pencil.sketch.apk"//nine models, little rabbit //23 models
+////            apkDir + "com.seefoodtechnologies.nothotdog_2017-06-23.apk"//break:72 //1 model
+////            apkDir + "com.iart.camera.photo_2019-07-10.apk" // pass //run // 2 runs //5 models
+////            apkDir + "wallpaper.transparent.apk" // //1 model
+//
+////
+////            apkDir + "expo-face-detector.apk"
+////            apkDir + "mlkittest.apk"
+////            apkDir + "jp.naver.line.android_2019-09-18.apk" //result: 5217 time: 824
+//
+////
+////            apkDir + "com.concur.breeze_2019-09-13.apk" //head overflow
+//
+//
+////                ---------------------------------- 2021
+////                Constant.apkDir2021 + "android_TNN_Demo.apk"
+////                Constant.apkDir2021 + "com.tencent.mobilenetssdncnn-debug.apk"//done
+////                Constant.apkDir2021 + "com.tencent.squeezencnn-debug.apk"
+////                Constant.apkDir2021 + "com.tencent.styletransferncnn-debug.apk"
+////                Constant.apkDir2021 + "com.tencent.yolov5ncnn-debug.apk"//done
+////                Constant.apkDir2021 + "MNNClassification.apk"
+////                Constant.apkDir2021 + "PaddleLiteClassification.apk"
+////                Constant.apkDir2021 + "TFLiteClassification.apk"
+////                Constant.apkDir2021 + "TNNClassification.apk"
+////                Constant.apkDir2021 + "Envision_AI_v1.8.15_apkpure.com.apk"
+////                Constant.apkDir2021 + "android-yolo.apk"//done
+////                Constant.apkDir2021 + "tflite_yolov5_test_release_v1.0.apk"//yolo
+////                Constant.apkDir2021 + "android-yolo-v2-master-debug.apk"//yolo
+////                Constant.apkDir2021 + "android-TFDetect-debug.apk"//done
+//
+//                // DIY demo (from android-yolo-v2-master-debug.apk)
+////                Constant.apkDir2021 + "demo_ssd_mobilenet_v1_coco.apk"//todo IM6
+////                Constant.apkDir2021 + "demo_ssd_mobilenet_v2.apk"//todo IM7
+////                Constant.apkDir2021 + "demo_faster_rcnn_inception_v2_coco.apk"//todo IM8
+////                Constant.apkDir2021 + "demo_mask_rcnn_inception_v2.apk"//todo IM9
+////                Constant.apkDir2021 + "lite_demo_efficientdet2.apk"//todo IM10
+//
+//
+////                Constant.apkDir2021 + "demo_ssd_resnet50_v1_fpn_640.apk"
+//
+//                // nsfw.tflite
+////                Constant.apkDir2021 + "cn.com.faceapp.face_4.apk"//shell
+////                Constant.apkDir2021 + "com.sudyapp_126.apk"//shell
+////                Constant.apkDir2021 + "cn.com.miaoping.face_9.apk"//shell
+//
+//                // classifier
+////                Constant.apkDir2021 + "com.seefoodtechnologies.nothotdog_2017-06-23.apk"
+////                Constant.apkDir2021 + "not_hotdog.apk"//latest version
+//
+//
+//                //Clear
+////                apkDir + "org.tensorflow.detect_2017-10-09.apk"//1807 true priority; false->array not init//todo IM1
+////                apkDir + "Object_Detector_v1.2.2_apkpure.com.apk"//6282 true priority; false->loop boom//todo IM2
+////                apkDir + "com.app.chakras_opening.apk"//6282
+////                apkDir + "ru.photostrana.mobile_2019-07-23.apk"//834
+////                apkDir + "com.zenjoy.pipcollage.apk"//1363 face detection false priority
+////                apkDir + "com.yilab.tensorflow.lite.examples.detection.apk"//false priority//todo IM4
+////                apkDir + "org.prudhvianddheeraj.lite.example.detection.apk"//false priority//todo IM3
+////                apkDir + "a_i_glass_apkpure.com.apk"//!!!! true priority; false->buffer size not match//todo IM5
+//
+////                ----------------------------------
+//
+//
+////                apkDir + "com.infocomltd.ugvassistant_2019-02-13.apk"//sink not in graph
+////                apkDir + "Banuba_Funny_Face_Swap_Camera_Filters_v4.11.0_apkpure.com.apk"
+////                apkDir + "com.nike.omega_2008131807.apk"//1000w+
+//
+////                apkDir + "ru.farpost.dromfilter_2019-07-11.apk"
+////                apkDir + "Fritz_AI_Studio_v2.2.0_apkpure.com.apk"
+////                apkDir + "com.axiom.deepgaze.apk"
+////                apkDir + "qmcx.com.trackercamera_30.apk"
+////                apkDir + "cn.runagain.run_80.apk"
+////                apkDir + "com.google.android.apps.photos.scanner_2019-04-26.apk"
+////                apkDir + "com.google.android.apps.translate_2019-09-12.apk"
+//
+////                apkDir + "com.infocomltd.ugvassistant_2019-08-05.apk"
+////                apkDir + "com.kada.camera.android_208.apk"
+////                apkDir + "com.myfitnesspal.android_12820.apk"
+////                apkDir + "com.myanmardev.myanmarebook.apk"
+////                apkDir + "com.quatkhoi.diseases.dictionary.apk"
+////                apkDir + "com.tannertrev.tips_for_grand_city.apk"
+////                apkDir + "com.topsky.kkol_171.apk"
+////                apkDir + "com.trackingdeluxe.shiptracker.apk"
+////                apkDir + "hien.newsvoicereader.apk"
+////                apkDir + "io.mvlchain.tada.apk"
+//
+////                apkDir + "com.bjcsxq.chat.carfriend_hj_34.apk"
+////                apkDir + "net.whty.app.eyu.zjedu_668.apk"
+//
+//
+////                apkDir + "kr.co.robin.android.tflite.objectdetector_2018-08-13.apk"
+////                apkDir + "Object_Detector_TFLite_v1.0_apkpure.com.apk"
+////                apkDir + "Object_Detector_v1.2.2_apkpure.com.apk"
+//
+//
+////         do not analysis...
+////         apkDir + "com.aiworks.android.moji_40104.apk"
+////         apkDir + "apk-com.optimaxInvestments.GlassesUSA.apk"// result more than 2w lines code
+////         apkDir + "machinelearning.tensorflow.speech_2017-09-26.apk" //seemingly pass async invoke
+////         apkDir + "5947Apps/com.urbandroid.sleep_2019-07-19.apk", //seemingly pass ////GC overhead limit exceeded stop
+//        ));

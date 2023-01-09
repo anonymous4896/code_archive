@@ -1,0 +1,31 @@
+﻿framework,class_pattern,method_pattern,class_name,method_name,def_value,order
+tf,org.tensorflow.contrib.android.#,"void#(java.lang.String,float[],long[])",org.tensorflow.contrib.android.TensorFlowInferenceInterface,feed,-2,1
+tf,org.tensorflow.contrib.android.#,"void#(java.lang.String,boolean[],long[])",org.tensorflow.contrib.android.TensorFlowInferenceInterface,feed,-2,1
+tf,org.tensorflow.contrib.android.#,"void#(java.lang.String,int[],long[])",org.tensorflow.contrib.android.TensorFlowInferenceInterface,feed,-2,1
+tf,org.tensorflow.contrib.android.#,"void#(java.lang.String,long[],long[])",org.tensorflow.contrib.android.TensorFlowInferenceInterface,feed,-2,1
+tf,org.tensorflow.contrib.android.#,"void#(java.lang.String,double[],long[])",org.tensorflow.contrib.android.TensorFlowInferenceInterface,feed,-2,1
+tf,org.tensorflow.contrib.android.#,"void#(java.lang.String,byte[],long[])",org.tensorflow.contrib.android.TensorFlowInferenceInterface,feed,-2,1
+tf,org.tensorflow.contrib.android.#,"void#(java.lang.String,short[],long[])",org.tensorflow.contrib.android.TensorFlowInferenceInterface,feed,-2,1
+tf,org.tensorflow.contrib.android.#,"void#(java.lang.String,java.nio.#Buffer,long[])",org.tensorflow.contrib.android.TensorFlowInferenceInterface,feed,-2,1
+tf,org.tensorflow.contrib.android.#,"void#(java.lang.String,int[],float[])",org.tensorflow.contrib.android.TensorFlowInferenceInterface,feed,-2,1
+tf,org.tensorflow.contrib.android.#,"void#(java.lang.String,int[],boolean[])",org.tensorflow.contrib.android.TensorFlowInferenceInterface,feed,-2,1
+tf,org.tensorflow.contrib.android.#,"void#(java.lang.String,int[],int[])",org.tensorflow.contrib.android.TensorFlowInferenceInterface,feed,-2,1
+tf,org.tensorflow.contrib.android.#,"void#(java.lang.String,int[],double[])",org.tensorflow.contrib.android.TensorFlowInferenceInterface,feed,-2,1
+tf,org.tensorflow.contrib.android.#,"void#(java.lang.String,int[],byte[])",org.tensorflow.contrib.android.TensorFlowInferenceInterface,feed,-2,1
+tf,org.tensorflow.contrib.android.#,"void#(java.lang.String,int[],short[])",org.tensorflow.contrib.android.TensorFlowInferenceInterface,feed,-2,1
+tf,g.a.e.a.a,"void e(java.lang.String,float[],long[])",org.tensorflow.contrib.android.TensorFlowInferenceInterface,feed,-2,1
+tf,org.tensorflow.contrib.android.#,void#(java.lang.String[]),org.tensorflow.contrib.android.TensorFlowInferenceInterface,run,-2,2
+tf,org.tensorflow.contrib.android.#,"void#(java.lang.String[],boolean)",org.tensorflow.contrib.android.TensorFlowInferenceInterface,run,-2,2
+tf,org.tensorflow.contrib.android.#,"void#(java.lang.String[],boolean,java.lang.String[])",org.tensorflow.contrib.android.TensorFlowInferenceInterface,run,-2,2
+tf,g.a.e.a.a,"void k(java.lang.String[],boolean)",org.tensorflow.contrib.android.TensorFlowInferenceInterface,run,-2,2
+tf,org.tensorflow.contrib.android.#,"void#(java.lang.String,float[])",org.tensorflow.contrib.android.TensorFlowInferenceInterface,fetch,1,3
+tf,org.tensorflow.contrib.android.#,"void#(java.lang.String,int[])",org.tensorflow.contrib.android.TensorFlowInferenceInterface,fetch,1,3
+tf,org.tensorflow.contrib.android.#,"void#(java.lang.String,long[])",org.tensorflow.contrib.android.TensorFlowInferenceInterface,fetch,1,3
+tf,org.tensorflow.contrib.android.#,"void#(java.lang.String,double[])",org.tensorflow.contrib.android.TensorFlowInferenceInterface,fetch,1,3
+tf,org.tensorflow.contrib.android.#,"void#(java.lang.String,byte[])",org.tensorflow.contrib.android.TensorFlowInferenceInterface,fetch,1,3
+tf,org.tensorflow.contrib.android.#,"void#(java.lang.String,short[])",org.tensorflow.contrib.android.TensorFlowInferenceInterface,fetch,1,3
+tf,org.tensorflow.contrib.android.#,"void#(java.lang.String,java.nio.#Buffer)",org.tensorflow.contrib.android.TensorFlowInferenceInterface,fetch,1,3
+tf,g.a.e.a.a,"void g(java.lang.String,float[])",org.tensorflow.contrib.android.TensorFlowInferenceInterface,fetch,1,3
+tflite,org.tensorflow.lite.#,"void#(java.lang.Object,java.lang.Object)",org.tensorflow.lite.Interpreter,run,1,1
+tflite,org.tensorflow.lite.#,"void#(java.lang.Object[],java.util.Map)",org.tensorflow.lite.Interpreter,runForMultipleInputsOutputs,1,1
+,org.tensorflow.demo.Classifier,java.util.List recognizeImage(android.graphics.Bitmap),org.tensorflow.demo.Classifier,recognizeImage,-2,1
