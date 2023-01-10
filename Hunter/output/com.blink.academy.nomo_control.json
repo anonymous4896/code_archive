@@ -1,0 +1,16 @@
+{
+  "appName" : "com.blink.academy.nomo.apk",
+  "modelName" : null,
+  "frameworkName" : "tflite",
+  "outputNames" : [ ],
+  "inputNames" : [ ],
+  "otherInputs" : [ ],
+  "processConfig" : {
+    "pixelType" : "float",
+    "reshape" : [ 257, 257, 3 ],
+    "sub" : 127.5,
+    "div" : 127.5,
+    "reverse" : false,
+    "colorMode" : "BGR"
+  }
+}

@@ -72,7 +72,9 @@ logging.basicConfig(filename=os.path.join(LOG_DIR, args.logs_file), level=loggin
 
 pixel_type_mapping = {
     "float32": np.float32,
+    "float": np.float32,
     "uint8":np.uint8, 
+    "int":np.uint8, 
 }
 
 
@@ -338,7 +340,10 @@ def test_one_img(img_path: str, control: dict, graph, graph_def, input_tensor, o
 
     # image target for classification task 
     process_config = control['process_config']
-    img_target = control['img_target']
+    if 'img_target' in control:
+        img_target = control['img_target']
+    else:
+        img_target = {}
     base_name = os.path.basename(img_path)
 
     # other inputs for multi input. Only for tensorflow models 
@@ -407,9 +412,20 @@ def test_one_img(img_path: str, control: dict, graph, graph_def, input_tensor, o
         if other_inputs is not None:
             for key in other_inputs:
                 feed_dict[key] = other_inputs[key]
-        orig_out = sess.run(output_tensor, feed_dict=feed_dict)
+        try:
+            orig_out = sess.run(output_tensor, feed_dict=feed_dict)
+        except tf.errors.InvalidArgumentError:
+            reshape = [1] + list(x.shape)
+            x = x.reshape(reshape)
+            feed_dict[input_tensor] = x
+            orig_out = sess.run(output_tensor, feed_dict=feed_dict)
     else:
-        orig_out = modCl.model(x)
+        try:
+            orig_out = modCl.model(x)
+        except ValueError:
+            reshape = [1] + list(x.shape)
+            x = x.reshape(reshape)
+            orig_out = modCl.model(x)
         if isinstance(orig_out,tuple):
             orig_out = orig_out[0]
         orig_out = orig_out.numpy()
@@ -499,7 +515,10 @@ def test_one_img(img_path: str, control: dict, graph, graph_def, input_tensor, o
 
 
 def test_one_model(apk_name: str,  model_name: str, img_name=""):
-    control = all_control[apk_name][model_name]
+    try:
+        control = all_control[apk_name][model_name]
+    except KeyError:
+        control = all_control[apk_name]['*']
     if isinstance(control, str): # if it is str, then we use the same config 
         if '/' in control:
             apk, m = control.split('/')
@@ -509,7 +528,11 @@ def test_one_model(apk_name: str,  model_name: str, img_name=""):
     if args.keras:
 
         model_path = os.path.join("data","keras_data","tflite_model")
-        ignore_list = open(os.path.join(model_path, 'keras_ignore.txt'), 'r').read()
+        ignore_file = os.path.join(model_path, 'keras_ignore.txt')
+        if os.path.exists(ignore_file):
+            ignore_list = open(ignore_file, 'r').read()
+        else:
+            ignore_list = []
         if "%s/%s" %(apk_name, model_name) in ignore_list: 
             logging.warning("%s/%s in ignore list. Skip"%(apk_name, model_name))
             return 

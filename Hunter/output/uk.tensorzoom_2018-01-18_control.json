@@ -1,0 +1,19 @@
+{
+  "appName" : "uk.tensorzoom_2018-01-18.apk",
+  "modelName" : null,
+  "frameworkName" : "tf",
+  "outputNames" : [ "output" ],
+  "inputNames" : [ "input" ],
+  "otherInputs" : [ {
+    "inputName" : "input_shape",
+    "values" : [ 64, 64, 3 ]
+  } ],
+  "processConfig" : {
+    "pixelType" : "float",
+    "reshape" : [ 64, 64, 3 ],
+    "sub" : 0.0,
+    "div" : 255.0,
+    "reverse" : false,
+    "colorMode" : "BGR"
+  }
+}

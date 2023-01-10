@@ -1,0 +1,49 @@
+{
+  "com.blink.academy.nomo": {
+    "*": {
+      "process_config": {
+        "pixel_type": "float",
+        "reshape": [
+          257,
+          257,
+          3
+        ],
+        "sub": 127.5,
+        "div": 127.5,
+        "reverse": false,
+        "mode": "BGR"
+      },
+      "output_name": [],
+      "input_name": []
+    }
+  },
+  "uk.tensorzoom_2018-01-18": {
+    "*": {
+      "process_config": {
+        "pixel_type": "float",
+        "reshape": [
+          64,
+          64,
+          3
+        ],
+        "sub": 0.0,
+        "div": 255.0,
+        "reverse": false,
+        "mode": "BGR"
+      },
+      "other_inputs": {
+        "input_shape": [
+          64,
+          64,
+          3
+        ]
+      },
+      "output_name": [
+        "output"
+      ],
+      "input_name": [
+        "input"
+      ]
+    }
+  }
+}
