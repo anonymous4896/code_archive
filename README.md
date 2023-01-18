@@ -8,4 +8,4 @@ This repo consists of 2 folders: `Hunter` and `mob-dl-rev`.
 
 `mob-dl-rev` contains white box testing toolkit, see [README](mob-dl-rev/README.md) for more details. 
 
-The **expected** usage: Hunter -> mob-dl_rev
+The **expected** usage: Hunter -> mob-dl-rev
